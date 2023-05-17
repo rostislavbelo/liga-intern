@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="ru">
   <head>
-    <title>ProjectName</title>
+    <title>Список страниц</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
@@ -23,66 +23,62 @@
 </g></symbol></svg>
     </div>
     <div class="wrapper">
-      <header class="header" data-header data-fix-block>
-        <div class="container">
-          <div class="header__logo-block"><span>
-              <svg width="67" height="67" aria-hidden="true">
-                <use xlink:href="#logo"></use>
-              </svg></span>
-          </div>
-          <button class="btn header__main-button btn-header" data-btn-nav><span class="header__main-button-el-top header__main-button-el"></span><span class="header__main-button-el-bottom header__main-button-el"></span></button>
-        </div>
-        <nav class="main-nav" data-main-nav data-fix-block>
-          <div class="container">
-            <div class="main-nav__wrapper">
-              <ul class="main-nav__list">
-                <li class="main-nav__item"><a class="main-nav__link" href="animations.html">Анимации</a>
-                </li>
-                <li class="main-nav__item"><a class="main-nav__link" href="map-1.html">Карта 1</a>
-                </li>
-                <li class="main-nav__item"><a class="main-nav__link" href="#">Карта 2</a>
-                </li>
-                <li class="main-nav__item"><a class="main-nav__link" href="#">Карта 3</a>
-                </li>
-                <li class="main-nav__item"><a class="main-nav__link" href="#">Карта 4</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </nav>
-      </header>
+      <style>
+        .container {
+          padding-top: 50px;
+          padding-bottom: 50px;
+        }
+        
+        h1 {
+          font-size: 24px;
+          line-height: 28px;
+        }
+        
+        a {
+          color: rgb(10, 10, 175);
+        }
+        
+        li {
+          font-size: 18px;
+          line-height: 22px;
+          margin-bottom: 7px;
+        }
+        
+        img {
+          width: 100%;
+          max-width: 300px;
+          height: auto;
+          display: block;
+          margin-bottom: 40px;
+        }
+        
+        @media (max-width: 768px) {
+          .container {
+            padding-top: 20px;
+            padding-bottom: 20px;
+          }
+        
+          ol {
+            padding-left: 20px;
+          }
+        
+          ol li {
+            margin-bottom: 15px;
+          }
+        }
+        
+      </style>
       <main>
-        <div class="intro" data-animate="intro">
-          <div class="intro__sticky">
-            <div class="intro__bg">
-              <video src="img/video/background-wave.mp4" alt="wave" muted="true" autoplay="true" loop playsinline></video>
-            </div>
-            <div class="container" data-animate="intro-content">
-              <div class="intro__top">
-                <h1 class="intro__title title words lines splitting" data-splitting>Задачки<br>на прокачку</h1>
-                <p class="intro__text words lines splitting" data-splitting>Задачи на интерфейсную логику,<br>которые часто встречаются<br>на реальных проектах</p>
-              </div>
-              <ul class="intro__cards-list">
-                <li class="intro__cards-item"><a class="card-simple" href="#menu">
-                    <h2 class="card-simple__title title title--h3">Меню</h2></a></li>
-                <li class="intro__cards-item"><a class="card-simple" href="#loader">
-                    <h2 class="card-simple__title title title--h3">Лоадер</h2></a></li>
-                <li class="intro__cards-item"><a class="card-simple" href="#first-skreen">
-                    <h2 class="card-simple__title title title--h3">Сборка<br>первого экрана</h2></a></li>
-                <li class="intro__cards-item"><a class="card-simple" href="#appear">
-                    <h2 class="card-simple__title title title--h3">Появление блоков</h2></a></li>
-                <li class="intro__cards-item"><a class="card-simple" href="#parallax">
-                    <h2 class="card-simple__title title title--h3">Параллакс</h2></a></li>
-                <li class="intro__cards-item"><a class="card-simple" href="#scroll">
-                    <h2 class="card-simple__title title title--h3">Слайдер<br>по скроллу</h2></a></li>
-              </ul>
-            </div>
-          </div>
+        <div class="container"><img src="https://via.placeholder.com/300x150" width="300" alt="Логотип проекта">
+          <h1>Список страниц</h1>
+          <ol>
+            <li><a href="ui-kit.html">UI-kit — ui-kit.html</a></li>
+            <li><a href="index.html">Главная — index.html</a></li>
+            <li><a href="animations.html">Анимации — animations.html</a></li>
+            <li><a href="map-1.html">Карта-1 — map-1.html</a></li>
+          </ol>
         </div>
       </main>
-      <footer class="footer">
-        <div class="container"></div>
-      </footer>
     </div>
     <script src="js/vendor.min.js"></script>
     <script src="js/main.min.js"></script>
