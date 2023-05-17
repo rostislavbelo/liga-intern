@@ -1,0 +1,31 @@
+mixin intro()
+  .intro(data-animate="intro")
+    .intro__sticky
+      .intro__bg
+        video(src="img/video/background-wave.mp4" alt="wave" muted="true" autoplay="true" loop playsinline)
+      .container(data-animate="intro-content")
+        .intro__top
+          h1.intro__title.title.words.lines.splitting(data-splitting) Задачки<br>на прокачку
+
+          p.intro__text.words.lines.splitting(data-splitting) Задачи на интерфейсную логику,<br>которые часто встречаются<br>на реальных проектах
+
+
+        ul.intro__cards-list
+          li.intro__cards-item
+            a.card-simple(href="#menu")
+              h2.card-simple__title.title.title--h3 Меню
+          li.intro__cards-item
+            a.card-simple(href="#loader")
+              h2.card-simple__title.title.title--h3 Лоадер
+          li.intro__cards-item
+            a.card-simple(href="#first-skreen")
+              h2.card-simple__title.title.title--h3 Сборка<br>первого экрана
+          li.intro__cards-item
+            a.card-simple(href="#appear")
+              h2.card-simple__title.title.title--h3 Появление блоков
+          li.intro__cards-item
+            a.card-simple(href="#parallax")
+              h2.card-simple__title.title.title--h3 Параллакс
+          li.intro__cards-item
+            a.card-simple(href="#scroll")
+              h2.card-simple__title.title.title--h3 Слайдер<br>по скроллу

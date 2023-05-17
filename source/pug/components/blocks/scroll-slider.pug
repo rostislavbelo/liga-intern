@@ -1,0 +1,29 @@
+mixin scroll-slider()
+  .scroll-slider(data-scroll-slider="parent")&attributes(attributes)
+    section.scroll-slider__sticky(id="scroll-slider" data-scroll-slider="sticky")
+     .scroll-slider__slide.is-active(data-scroll-slider="slide")
+        .container
+          .content-block.content-block--centered
+            h2 Scroll Slider
+            p переключение полноэкранных слайдов по скроллу
+        .scroll-slider__bg(style="background-image: url('img/svg/architect-bg.svg')")
+     .scroll-slider__slide(data-scroll-slider="slide")
+        .container
+          .content-block.content-block--centered
+            h2 position: sticky;
+            p Просто стики. Не нужно мучаться с position: fixed; или pin: true,<br>(т.к. баги на тач неисправимы)
+        .scroll-slider__bg(style="background-image: url('img/svg/squares-bg.svg')")
+     .scroll-slider__slide(data-scroll-slider="slide")
+        .container
+          .content-block.content-block--centered
+            h2 gsap scrollTrigger
+            p без getBoundingClientRect<br>ScrollTrigger делает всю рутину за нас
+        .scroll-slider__bg(style="background-image: url('img/svg/plus-bg.svg')")
+     .scroll-slider__slide(data-scroll-slider="slide")
+        .container
+          .content-block.content-block--centered
+            h2 ios friendly???
+            p не забывайте добавлять вокруг transform: translate3d(0, 0, 0);
+        .scroll-slider__bg(style="background-image: url('img/svg/graph-paper-bg.svg')")
+
+

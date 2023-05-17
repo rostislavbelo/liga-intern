@@ -1,0 +1,75 @@
+-
+  const dataSection1 = {
+    title: "Меню тз",
+    content: [
+      "<b>Анимация появления</b>",
+      "При открытии: Сначала появляется меню, затем внутренний контент. Пункты внутри появляются с разной задержкой - эффект лесенки",
+      "При закрытии: Внутренний контент исчезает до закрытия меню, без задержки",
+      "Анимация меню на данном сайте реализована с помощью css (это база). Можете так же реализовать анимацию с помощью gsap",
+      "<b>JS</b>",
+      "Для блокировки скролла используется window.scrollLock",
+      "Должны быть реализованы функции или методы для открытия и закрытия меню, которые можно использовать в других модулях",
+    ],
+    cards: [],
+  }
+
+  const dataSection2 = {
+    title: "Лоадер тз",
+    content: [
+      "Анимация лоадера произвольная, можно использовать css keyframes или gsap",
+      "После загрузки страницы мы всегда находимся вверху страницы (не должно быть видно скачка)",
+      "Скролл страницы заблокирован во время загрузки",
+    ],
+    cards: [],
+  }
+
+  const dataSection3 = {
+    title: "Сборка первого экрана тз",
+    content: [
+      "Для анимации используйте неколько разных css свойств и небольшие задержки",
+      "Для построчной или посимвольной анимации текста используйте splitting.js (пример: интро этого сайта)",
+    ],
+    cards: [],
+  }
+
+
+  const dataSection4 = {
+    title: "Появление блоков",
+    content: [
+      "доскролили и вжух!",
+      "Можно делать через классы и высчитывать по скроллу getBoundingClientRect каждого блока, но гораздо проще использовать ScrollTrigger.batch()",
+    ],
+    cards: [
+      "fade",
+      "fade",
+      "fade-in",
+      "fade-in",
+      "fade-scale",
+      "fade-scale",
+    ],
+  }
+
+  const dataSection5 = {
+    title: "Параллакс по скроллу",
+    content: [
+      "Эффекты, которые постоянно срабатывают по скроллу Скроллим скроллим и вжух вжух вжух!",
+    ],
+    cards: [
+      "fade-scale-reverce",
+      "fade-scale-reverce",
+      "transform-y",
+      "transform-y",
+    ],
+  }
+
+mixin section(data)
+  section.section&attributes(attributes)
+    .container
+      .content-block
+        h2 !{data.title}
+        each item in data.content
+          p !{item}
+        .section__cards-container
+          each item in data.cards
+            .card-simple.card-simple--dark.card-simple--centered(data-animate=`${item}`)
+              p.title.title--h3 !{item}

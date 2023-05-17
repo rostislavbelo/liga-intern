@@ -1,0 +1,50 @@
+mixin header(headerMods, currentUrl)
+  -
+    const headerLinks = [
+      {
+        href: "animations.html",
+        text: "Анимации"
+      },
+      {
+        href: "map-1.html",
+        text: "Карта 1"
+      },
+      {
+        href: "#",
+        text: "Карта 2"
+      },
+      {
+        href: "#",
+        text: "Карта 3"
+      },
+      {
+        href: "#",
+        text: "Карта 4"
+      },
+
+    ]
+
+  header.header(class=headerMods data-header data-fix-block)
+    .container
+      .header__logo-block
+        if(currentUrl === "index.html")
+          //- lighthouse снимает 10 баллов SEO за <a> без href
+          span
+            +icon("logo", 67, 67)
+        else
+          a.header__logo(href="index.html", aria-label="Переход на главную")
+            +icon("logo", 67, 67)
+      button.btn.header__main-button.btn-header(data-btn-nav)
+          span.header__main-button-el-top.header__main-button-el
+          span.header__main-button-el-bottom.header__main-button-el
+    nav.main-nav(data-main-nav data-fix-block)
+      .container
+        .main-nav__wrapper
+          ul.main-nav__list
+            each link in headerLinks
+              - const activeState = currentUrl === link.href
+              li.main-nav__item(class = currentUrl === link.href ? "is-active" : "")
+                if(activeState)
+                  span.main-nav__link.is-active=link.text
+                else
+                  a.main-nav__link(href=link.href)=link.text

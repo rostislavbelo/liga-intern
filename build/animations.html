@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <title>Animations</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="description" content="ProjectName — описание">
+    <link rel="stylesheet" href="css/style.min.css">
+  </head>
+  <body>
+    <div class="visually-hidden"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><symbol id="icon-close" viewBox="0 0 20 20"><g fill="none"><path d="M.293 18.291a1 1 0 101.414 1.414L10 11.413l8.292 8.292a1 1 0 101.414-1.414l-8.292-8.292 8.292-8.292A1 1 0 1018.291.293L9.999 8.585 1.707.293A1 1 0 10.293 1.707L8.585 10 .293 18.291z"/></g></symbol><symbol id="logo" viewBox="0 0 34 34"><g fill="currentColor">
+<g>
+	<path d="M26.238,23.738c-2.096,3.047-5.551,4.865-9.237,4.865c-3.689,0-7.145-1.818-9.24-4.865
+		c-0.471-0.684-0.297-1.617,0.385-2.086c0.684-0.471,1.615-0.299,2.086,0.385c1.537,2.232,4.066,3.566,6.77,3.566
+		c2.701,0,5.23-1.334,6.768-3.566c0.473-0.684,1.404-0.854,2.086-0.385C26.538,22.123,26.709,23.057,26.238,23.738z M18.439,11.827
+		h-2.88h-3.363H4.751c0,3.658,2.418,6.625,5.404,6.625c2.436,0,4.494-1.977,5.168-4.693h3.354c0.677,2.717,2.731,4.693,5.171,4.693
+		c2.982,0,5.402-2.967,5.402-6.625h-7.688H18.439z M34,7.172v19.656C34,30.783,30.781,34,26.826,34H7.172
+		C3.217,34,0,30.783,0,26.828V7.172C0,3.217,3.217,0,7.172,0h19.654C30.782,0,34,3.217,34,7.172z M30,7.172
+		C30,5.423,28.576,4,26.826,4H7.172C5.422,4,4,5.423,4,7.172v19.656C4,28.576,5.422,30,7.172,30h19.654
+		C28.576,30,30,28.576,30,26.828V7.172z "/>
+</g>
+</g></symbol></svg>
+    </div>
+    <div class="wrapper">
+      <header class="header" data-header data-fix-block>
+        <div class="container">
+          <div class="header__logo-block"><a class="header__logo" href="index.html" aria-label="Переход на главную">
+              <svg width="67" height="67" aria-hidden="true">
+                <use xlink:href="#logo"></use>
+              </svg></a>
+          </div>
+          <button class="btn header__main-button btn-header" data-btn-nav><span class="header__main-button-el-top header__main-button-el"></span><span class="header__main-button-el-bottom header__main-button-el"></span></button>
+        </div>
+        <nav class="main-nav" data-main-nav data-fix-block>
+          <div class="container">
+            <div class="main-nav__wrapper">
+              <ul class="main-nav__list">
+                <li class="main-nav__item is-active"><span class="main-nav__link is-active">Анимации</span>
+                </li>
+                <li class="main-nav__item"><a class="main-nav__link" href="map-1.html">Карта 1</a>
+                </li>
+                <li class="main-nav__item"><a class="main-nav__link" href="#">Карта 2</a>
+                </li>
+                <li class="main-nav__item"><a class="main-nav__link" href="#">Карта 3</a>
+                </li>
+                <li class="main-nav__item"><a class="main-nav__link" href="#">Карта 4</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </nav>
+      </header>
+      <main>
+        <div class="intro" data-animate="intro">
+          <div class="intro__sticky">
+            <div class="intro__bg">
+              <video src="img/video/background-wave.mp4" alt="wave" muted="true" autoplay="true" loop playsinline></video>
+            </div>
+            <div class="container" data-animate="intro-content">
+              <div class="intro__top">
+                <h1 class="intro__title title words lines splitting" data-splitting>Задачки<br>на прокачку</h1>
+                <p class="intro__text words lines splitting" data-splitting>Задачи на интерфейсную логику,<br>которые часто встречаются<br>на реальных проектах</p>
+              </div>
+              <ul class="intro__cards-list">
+                <li class="intro__cards-item"><a class="card-simple" href="#menu">
+                    <h2 class="card-simple__title title title--h3">Меню</h2></a></li>
+                <li class="intro__cards-item"><a class="card-simple" href="#loader">
+                    <h2 class="card-simple__title title title--h3">Лоадер</h2></a></li>
+                <li class="intro__cards-item"><a class="card-simple" href="#first-skreen">
+                    <h2 class="card-simple__title title title--h3">Сборка<br>первого экрана</h2></a></li>
+                <li class="intro__cards-item"><a class="card-simple" href="#appear">
+                    <h2 class="card-simple__title title title--h3">Появление блоков</h2></a></li>
+                <li class="intro__cards-item"><a class="card-simple" href="#parallax">
+                    <h2 class="card-simple__title title title--h3">Параллакс</h2></a></li>
+                <li class="intro__cards-item"><a class="card-simple" href="#scroll">
+                    <h2 class="card-simple__title title title--h3">Слайдер<br>по скроллу</h2></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <section class="section" id="menu">
+          <div class="container">
+            <div class="content-block">
+              <h2>Меню тз</h2>
+              <p><b>Анимация появления</b></p>
+              <p>При открытии: Сначала появляется меню, затем внутренний контент. Пункты внутри появляются с разной задержкой - эффект лесенки</p>
+              <p>При закрытии: Внутренний контент исчезает до закрытия меню, без задержки</p>
+              <p>Анимация меню на данном сайте реализована с помощью css (это база). Можете так же реализовать анимацию с помощью gsap</p>
+              <p><b>JS</b></p>
+              <p>Для блокировки скролла используется window.scrollLock</p>
+              <p>Должны быть реализованы функции или методы для открытия и закрытия меню, которые можно использовать в других модулях</p>
+              <div class="section__cards-container">
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section" id="loader">
+          <div class="container">
+            <div class="content-block">
+              <h2>Лоадер тз</h2>
+              <p>Анимация лоадера произвольная, можно использовать css keyframes или gsap</p>
+              <p>После загрузки страницы мы всегда находимся вверху страницы (не должно быть видно скачка)</p>
+              <p>Скролл страницы заблокирован во время загрузки</p>
+              <div class="section__cards-container">
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section" id="first-skreen">
+          <div class="container">
+            <div class="content-block">
+              <h2>Сборка первого экрана тз</h2>
+              <p>Для анимации используйте неколько разных css свойств и небольшие задержки</p>
+              <p>Для построчной или посимвольной анимации текста используйте splitting.js (пример: интро этого сайта)</p>
+              <div class="section__cards-container">
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section" id="appear">
+          <div class="container">
+            <div class="content-block">
+              <h2>Появление блоков</h2>
+              <p>доскролили и вжух!</p>
+              <p>Можно делать через классы и высчитывать по скроллу getBoundingClientRect каждого блока, но гораздо проще использовать ScrollTrigger.batch()</p>
+              <div class="section__cards-container">
+                <div class="card-simple card-simple--dark card-simple--centered" data-animate="fade">
+                  <p class="title title--h3">fade</p>
+                </div>
+                <div class="card-simple card-simple--dark card-simple--centered" data-animate="fade">
+                  <p class="title title--h3">fade</p>
+                </div>
+                <div class="card-simple card-simple--dark card-simple--centered" data-animate="fade-in">
+                  <p class="title title--h3">fade-in</p>
+                </div>
+                <div class="card-simple card-simple--dark card-simple--centered" data-animate="fade-in">
+                  <p class="title title--h3">fade-in</p>
+                </div>
+                <div class="card-simple card-simple--dark card-simple--centered" data-animate="fade-scale">
+                  <p class="title title--h3">fade-scale</p>
+                </div>
+                <div class="card-simple card-simple--dark card-simple--centered" data-animate="fade-scale">
+                  <p class="title title--h3">fade-scale</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <section class="section" id="parallax">
+          <div class="container">
+            <div class="content-block">
+              <h2>Параллакс по скроллу</h2>
+              <p>Эффекты, которые постоянно срабатывают по скроллу Скроллим скроллим и вжух вжух вжух!</p>
+              <div class="section__cards-container">
+                <div class="card-simple card-simple--dark card-simple--centered" data-animate="fade-scale-reverce">
+                  <p class="title title--h3">fade-scale-reverce</p>
+                </div>
+                <div class="card-simple card-simple--dark card-simple--centered" data-animate="fade-scale-reverce">
+                  <p class="title title--h3">fade-scale-reverce</p>
+                </div>
+                <div class="card-simple card-simple--dark card-simple--centered" data-animate="transform-y">
+                  <p class="title title--h3">transform-y</p>
+                </div>
+                <div class="card-simple card-simple--dark card-simple--centered" data-animate="transform-y">
+                  <p class="title title--h3">transform-y</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+        <div class="scroll-slider" data-scroll-slider="parent" id="scroll">
+          <section class="scroll-slider__sticky" id="scroll-slider" data-scroll-slider="sticky">
+            <div class="scroll-slider__slide is-active" data-scroll-slider="slide">
+              <div class="container">
+                <div class="content-block content-block--centered">
+                  <h2>Scroll Slider</h2>
+                  <p>переключение полноэкранных слайдов по скроллу</p>
+                </div>
+              </div>
+              <div class="scroll-slider__bg" style="background-image: url('img/svg/architect-bg.svg')"></div>
+            </div>
+            <div class="scroll-slider__slide" data-scroll-slider="slide">
+              <div class="container">
+                <div class="content-block content-block--centered">
+                  <h2>position: sticky;</h2>
+                  <p>Просто стики. Не нужно мучаться с position: fixed; или pin: true,<br>(т.к. баги на тач неисправимы)</p>
+                </div>
+              </div>
+              <div class="scroll-slider__bg" style="background-image: url('img/svg/squares-bg.svg')"></div>
+            </div>
+            <div class="scroll-slider__slide" data-scroll-slider="slide">
+              <div class="container">
+                <div class="content-block content-block--centered">
+                  <h2>gsap scrollTrigger</h2>
+                  <p>без getBoundingClientRect<br>ScrollTrigger делает всю рутину за нас</p>
+                </div>
+              </div>
+              <div class="scroll-slider__bg" style="background-image: url('img/svg/plus-bg.svg')"></div>
+            </div>
+            <div class="scroll-slider__slide" data-scroll-slider="slide">
+              <div class="container">
+                <div class="content-block content-block--centered">
+                  <h2>ios friendly???</h2>
+                  <p>не забывайте добавлять вокруг transform: translate3d(0, 0, 0);</p>
+                </div>
+              </div>
+              <div class="scroll-slider__bg" style="background-image: url('img/svg/graph-paper-bg.svg')"></div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+    <div class="loader" data-loader>
+      <div class="loader__animate-wrap">
+        <div class="loader__animate-el loader__animate-el-1"></div>
+        <div class="loader__animate-el loader__animate-el-2"></div>
+        <div class="loader__animate-el loader__animate-el-3"></div>
+        <div class="loader__animate-el loader__animate-el-4"></div>
+      </div>
+    </div>
+    <script src="js/vendor.min.js"></script>
+    <script src="js/main.min.js"></script>
+  </body>
+</html>

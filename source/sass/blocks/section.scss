@@ -1,0 +1,45 @@
+.section {
+  padding-top: 90px;
+  position: relative;
+  background-color: $color-default-white;
+}
+
+.section .content-block {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 70%;
+}
+
+.content-block h2 {
+  margin: 0;
+  font-size: 45px;
+  line-height: 54px;
+  font-weight: 400;
+}
+
+.content-block h2:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.content-block p:not(:last-child) {
+  margin-bottom: 15px;
+}
+
+.content-block p {
+  margin: 0;
+  font-size: 18px;
+  line-height: 26px;
+  font-weight: 400;
+}
+
+.section__cards-container {
+  margin-top: 45px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 20px;
+  padding-bottom: 20px;
+}
+
+.content-block--centered {
+  text-align: center;
+}

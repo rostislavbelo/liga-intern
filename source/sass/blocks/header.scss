@@ -1,0 +1,102 @@
+.header {
+  padding: 28px 0;
+  width: 100%;
+  background-color: $color-transparent;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__logo-block {
+
+    svg {
+      width: 67px;
+      height: 67px;
+      color: #303030;
+      transition: color linear 0.5s;
+
+    }
+  }
+
+  &__main-button {
+    padding: 0;
+    margin: 0;
+    background-color: $color-transparent;
+    position: relative;
+    width: 36px;
+    height: 40px;
+
+
+    @include hover-focus {
+      .header__main-button-el-top {
+        left: -4px;
+      }
+
+      .header__main-button-el-bottom {
+        left: 4px;
+      }
+    }
+  }
+
+  &__main-button-el {
+    width: 36px;
+    height: 2px;
+    background-color: $color-default-black;
+    position: absolute;
+    transition: left $trans-default, background-color linear 0.5s, transform $trans-default;
+  }
+
+  .header__main-button-el-top {
+    left: 0;
+    top: 15px;
+  }
+
+  .header__main-button-el-bottom {
+    left: 0;
+    bottom: 15px;
+  }
+}
+
+
+.is-active {
+
+  .header__main-button-el {
+    background-color: $color-default-white;
+    left:0;
+    top: 50%;
+    transform: rotate(45deg);
+  }
+
+  .header__main-button-el-bottom {
+    transform: rotate(-45deg);
+
+  }
+
+  .header__logo-block svg {
+    color: $color-default-white;
+  }
+
+  .header__main-button {
+
+    @include hover-focus {
+      .header__main-button-el-top {
+        left: 0;
+        transform: rotate(40deg);
+
+      }
+
+      .header__main-button-el-bottom {
+        left: 0;
+        transform: rotate(-40deg);
+      }
+    }
+  }
+
+}
+

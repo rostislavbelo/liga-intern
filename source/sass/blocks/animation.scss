@@ -1,0 +1,31 @@
+@keyframes rotate-360 {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes funny-eggs {
+  from {
+    width: 35px;
+    background-color: green;
+  }
+
+  30% {
+    background-color: red;
+  }
+
+  60% {
+    background-color: yellow;
+  }
+
+  to {
+    width: 55px;
+    background-color: blue;
+  }
+}
+
+

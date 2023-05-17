@@ -1,0 +1,143 @@
+.scroll-slider {
+  margin-top: 200px;
+  background-color: #fff;
+}
+
+.scroll-slider__slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-slider__slide,
+.scroll-slider__slide .content-block {
+  transform: translate3d(0, 0, 0);
+  position: relative;
+}
+
+.scroll-slider__bg {
+  transform: translate3d(0, 0, 0);
+  position: absolute;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-repeat: repeat;
+  color: #f6f6f6;
+}
+
+.scroll-slider__slide .content-block {
+  margin: 0 auto;
+  max-width: 70%;
+  transform: translate3d(0, 0, 0);
+  position: relative;
+}
+
+[data-scroll-slider=parent] {
+  position: relative;
+  min-height: 400vh;
+}
+
+[data-scroll-slider=parent] [data-scroll-slider=sticky] {
+  position: sticky;
+  top: 0;
+  min-height: 100vh;
+  max-height: 100vh;
+  overflow: hidden;
+}
+
+[data-scroll-slider=parent] [data-scroll-slider=slide] {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+  min-height: calc(100*var(--vh, 1vh));
+  max-height: calc(100*var(--vh, 1vh));
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.3s ease;
+}
+
+[data-scroll-slider=parent] [data-scroll-slider=slide].is-active {
+  opacity: 1;
+  pointer-events: all;
+}
+
+// .section-1{
+//   position: relative;
+
+//   &__inner {
+//     display: flex;
+//     justify-content: center;
+//     align-items: center;
+//   }
+
+//   &__sticky {
+//     position: sticky;
+//     top: 0;
+//     left: 0;
+
+//     min-height: 100vh;
+//     max-height: 100vh;
+//     width: 100%;
+
+//     overflow: hidden;
+//   }
+
+//   &__inner {
+//     position: absolute;
+//     top: 0;
+//     left: 0;
+
+//     height: 100%;
+//   }
+
+//   &[data-section="horizontal"] {
+//     [data-section="content"] {
+//       width: max-content;
+//     }
+
+//     &[data-hidden-start] {
+//       [data-section="content"] {
+//         padding-left: 100vw;
+//       }
+//     }
+
+//     &[data-reversed] {
+//       .section__inner {
+//         left: unset;
+//         right: 0;
+//       }
+
+//       &[data-hidden-start] {
+//         [data-section="content"] {
+//           padding-left: 0;
+//           padding-right: 100vw;
+//         }
+//       }
+//     }
+//   }
+// }
+
+// .text-overlay {
+//   position: absolute;
+//   z-index: 2;
+//   right: -20vw;
+//   top: 0;
+//   height: 100%;
+//   width: 20vw;
+//   background: #fff;
+//   mix-blend-mode: difference;
+//   // clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);
+//   clip-path: polygon(25% 0, 0% 100%, 25% 100%, 50% 0, 75% 0, 50% 100%, 26% 100%, 25% 100%, 75% 100%, 100% 0%);
+
+// }
+
+
+// .container-1 {
+//   padding: 10vw 40px;
+// }
+
