@@ -11,6 +11,20 @@ const initMainNav = () => {
 
   let headerHeight = header.clientHeight;
 
+
+  // -------------------------------------------------------------
+  // Устанавливаем слежение за высотой хедера и передаём переменную в стили
+
+  document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
+
+  window.addEventListener('resize', function () {
+    headerHeight = header.clientHeight;
+    document.documentElement.style.setProperty('--header-height', `${headerHeight}px`);
+  });
+
+  // -----------------------------------------------------------------
+
+
   const toggleActive = () => {
     header.classList.toggle('is-active');
     mainNav.style['padding-top'] = `${headerHeight}px`;
@@ -25,4 +39,4 @@ const initMainNav = () => {
 
 };
 
-export {initMainNav};
+export { initMainNav };

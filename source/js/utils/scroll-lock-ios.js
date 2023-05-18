@@ -1,7 +1,8 @@
 const addScrollLock = () => {
   const body = document.querySelector('body');
+  const loader = document.querySelector('[data-loader]');
 
-  if (!body) {
+  if (!body || !loader) {
     return;
   }
 

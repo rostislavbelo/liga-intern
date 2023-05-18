@@ -7,6 +7,7 @@ const initStickySlider = () => {
     return;
   }
 
+
   const content = section.querySelectorAll('[data-scroll-slider="slide"]');
 
   section.style.minHeight = window.innerWidth * (content.length - 1) + 'px';
