@@ -1,0 +1,8 @@
+{
+  "type": "FeatureCollection",
+  "features": [
+      {"type": "Feature", "id": 0, "geometry": {"type": "Point", "coordinates": [59.970966, 30.327456]}, "properties": {"balloonContentBody": "<div class='map-point'><img src='img/content/pin-park-1.jpg'/><div><p>Парки</p><b><p>Ботанический сад</p></b><p>ул. Профессора Попова, д. 2П</p></div></div>"}, "options": {"preset": "default#imageWithContent", "iconLayout": "default#image", "iconImageHref": "img/file/icon-park.png", "iconImageSize": [62, 62], "iconImageOffset": [-15, 5], "hideIconOnBalloonOpen": false}}
+  ]
+}
+
+

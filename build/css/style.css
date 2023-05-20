@@ -2475,6 +2475,20 @@ button,
   height: 40px;
 }
 
+.map-point {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.map-point img {
+  width: 100px;
+  height: 60px;
+  margin-right: 10px;
+}
+.map-point p {
+  margin: 0 0 0 0;
+}
+
 /* @mixin hover-focus {
     @media (hover: hover) {
       &:hover:not(.focus-visible) {

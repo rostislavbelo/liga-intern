@@ -79,8 +79,79 @@ const initMap = () => {
 
     myMap.geoObjects
         .add(myPlacemark);
-        // .add(myPlacemarkWithContent);
+    // .add(myPlacemarkWithContent);
   });
 };
 
-export {initMap};
+
+const initMap2 = () => {
+
+  const container = document.querySelector('[data-map="map-2"]');
+
+  if (!container) {
+    return;
+  }
+
+  const zoomValue = container.dataset.zoom;
+  const centerValue = container.dataset.center.split(',');
+
+  ymaps.ready(function () {
+
+    let myMap2 = new ymaps.Map(container, {
+      center: centerValue,
+      zoom: zoomValue,
+    }, {
+      searchControlProvider: 'yandex#search',
+    });
+
+    myMap2.behaviors.disable('scrollZoom');
+
+    myMap2.controls.remove('zoomControl');
+
+    myMap2.controls.remove('geolocationControl');
+
+    myMap2.controls.remove('searchControl');
+
+    myMap2.controls.remove('routeButtonControl');
+
+    myMap2.controls.remove('trafficControl');
+
+    myMap2.controls.remove('typeSelector');
+
+    myMap2.controls.remove('fullscreenControl');
+
+
+    let myPlacemark = new ymaps.Placemark(myMap2.getCenter(), {
+      hintContent: 'Собственный значок метки',
+      // balloonContent: 'Это красивая метка',
+    }, {
+      // Опции.
+      // Необходимо указать данный тип макета.
+      iconLayout: 'default#image',
+      // Своё изображение иконки метки.
+      iconImageHref: 'img/file/map-pin.png',
+      // Размеры метки.
+      iconImageSize: [100, 100],
+      // Смещение левого верхнего угла иконки относительно
+      // её "ножки" (точки привязки).
+      iconImageOffset: [-50, -115],
+    });
+
+    myMap2.geoObjects
+        .add(myPlacemark);
+
+    let objectManager = new window.ymaps.ObjectManager();
+
+    myMap2.geoObjects.add(objectManager);
+
+    $.ajax({
+      url: 'data/data.json',
+    }).done(function (data) {
+      objectManager.add(data);
+    });
+
+  });
+
+};
+
+export {initMap, initMap2};
