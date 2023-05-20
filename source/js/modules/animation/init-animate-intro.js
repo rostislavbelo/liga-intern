@@ -6,22 +6,22 @@ const initAnimateIntro = () => {
     return;
   }
 
+  intro.classList.add('is-shown');
+
   const content = document.querySelector('[data-animate="intro-content"]');
 
-  setTimeout(() => intro.classList.add('is-shown'), 800);
-
-
-  const horizontalTween = gsap.to(content, {
+  const animateToScroll = gsap.to(content, {
     opacity: 0.5,
     scale: 0.75,
     y: '-10vh',
   });
-  ScrollTrigger.create({ // привязываем анимацию к скролл тригеру
+
+  ScrollTrigger.create({
     trigger: intro,
     start: 'top top',
     end: 'bottom top',
     scrub: true,
-    animation: horizontalTween,
+    animation: animateToScroll,
   });
 
 

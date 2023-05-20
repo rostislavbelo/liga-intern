@@ -2,10 +2,12 @@
 const initMap = () => {
   const container = document.querySelector('[data-map="map-1"]');
 
+  if (!container) {
+    return;
+  }
+
   const zoomValue = container.dataset.zoom;
   const centerValue = container.dataset.center.split(',');
-
-  console.log(centerValue);
 
   ymaps.ready(function () {
     let myMap = new ymaps.Map(container, {

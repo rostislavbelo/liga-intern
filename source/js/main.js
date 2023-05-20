@@ -38,11 +38,15 @@ window.addEventListener('DOMContentLoaded', () => {
     window.form = form;
     form.init();
     initMainNav();
-    initLoader();
-    initAnimateIntro();
+    // initAnimateIntro();
     initAnimateBatch();
     initStickySlider();
     initMap();
+    initLoader();
+
+    window.addEventListener('loaderOff', () => {
+      initAnimateIntro();
+    });
   });
 });
 
