@@ -48,12 +48,12 @@ const initMap = () => {
       // Необходимо указать данный тип макета.
       iconLayout: 'default#image',
       // Своё изображение иконки метки.
-      iconImageHref: 'img/file/map-pin.png',
+      iconImageHref: 'img/file/main-pin.png',
       // Размеры метки.
-      iconImageSize: [100, 100],
+      iconImageSize: [62, 76],
       // Смещение левого верхнего угла иконки относительно
       // её "ножки" (точки привязки).
-      iconImageOffset: [-50, -115],
+      iconImageOffset: [-31, -70],
     });
 
     // let myPlacemarkWithContent = new ymaps.Placemark([55.661574, 37.573856], {
@@ -129,12 +129,12 @@ const initMap2 = () => {
       // Необходимо указать данный тип макета.
       iconLayout: 'default#image',
       // Своё изображение иконки метки.
-      iconImageHref: 'img/file/map-pin.png',
+      iconImageHref: 'img/file/main-pin.png',
       // Размеры метки.
-      iconImageSize: [100, 100],
+      iconImageSize: [62, 76],
       // Смещение левого верхнего угла иконки относительно
       // её "ножки" (точки привязки).
-      iconImageOffset: [-50, -115],
+      iconImageOffset: [-31, -70],
     });
 
     myMap2.geoObjects
