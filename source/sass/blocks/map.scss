@@ -24,6 +24,28 @@
     }
   }
 
+  &__super-zoom {
+    position: absolute;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    transition: opacity ease 0.6s;
+    opacity: 0;
+
+    p {
+      color: white;
+      font-size: 20px;
+    }
+  }
+}
+
+.is-active.map__super-zoom {
+  transition: opacity ease 0.6s;
+  opacity: 1;
 }
 
 .map-point {
