@@ -78,7 +78,7 @@ const initMap = () => {
     // });
 
     myMap.geoObjects
-      .add(myPlacemark);
+        .add(myPlacemark);
     // .add(myPlacemarkWithContent);
   });
 };
@@ -138,7 +138,7 @@ const initMap2 = () => {
     });
 
     myMap2.geoObjects
-      .add(myPlacemark);
+        .add(myPlacemark);
 
     let objectManager = new window.ymaps.ObjectManager();
 
@@ -154,6 +154,7 @@ const initMap2 = () => {
 
 };
 
+
 const initMap3 = () => {
 
   const container = document.querySelector('[data-map="map-3"]');
@@ -167,28 +168,28 @@ const initMap3 = () => {
 
   ymaps.ready(function () {
 
-    let myMap2 = new ymaps.Map(container, {
+    let myMap3 = new ymaps.Map(container, {
       center: centerValue,
       zoom: zoomValue,
     }, {
       searchControlProvider: 'yandex#search',
     });
 
-    myMap2.behaviors.disable('scrollZoom');
+    myMap3.behaviors.disable('scrollZoom');
 
-    myMap2.controls.remove('zoomControl');
+    myMap3.controls.remove('zoomControl');
 
-    myMap2.controls.remove('geolocationControl');
+    myMap3.controls.remove('geolocationControl');
 
-    myMap2.controls.remove('searchControl');
+    myMap3.controls.remove('searchControl');
 
-    myMap2.controls.remove('routeButtonControl');
+    myMap3.controls.remove('routeButtonControl');
 
-    myMap2.controls.remove('trafficControl');
+    myMap3.controls.remove('trafficControl');
 
-    myMap2.controls.remove('typeSelector');
+    myMap3.controls.remove('typeSelector');
 
-    myMap2.controls.remove('fullscreenControl');
+    myMap3.controls.remove('fullscreenControl');
 
 
     // Убираем и устанавливаем возможность масштабирования по нажатию на ctrl
@@ -203,7 +204,7 @@ const initMap3 = () => {
       document.addEventListener('keydown', (evt) => {
         if (evt.key === 'Control') {
           sign = false;
-          myMap2.behaviors.enable('scrollZoom');
+          myMap3.behaviors.enable('scrollZoom');
           message.classList.remove('is-active');
           clearInterval(hidden);
 
@@ -211,7 +212,7 @@ const initMap3 = () => {
           document.addEventListener('keyup', () => {
             if (evt.key === 'Control') {
               sign = true;
-              myMap2.behaviors.disable('scrollZoom');
+              myMap3.behaviors.disable('scrollZoom');
             }
           });
         }
@@ -235,10 +236,8 @@ const initMap3 = () => {
       showMessage();
     }
 
-
-    let myPlacemark = new ymaps.Placemark(myMap2.getCenter(), {
+    let myPlacemark = new ymaps.Placemark(myMap3.getCenter(), {
       hintContent: 'Собственный значок метки',
-      // balloonContent: 'Это красивая метка',
     }, {
       // Опции.
       // Необходимо указать данный тип макета.
@@ -252,23 +251,62 @@ const initMap3 = () => {
       iconImageOffset: [-31, -70],
     });
 
-    myMap2.geoObjects
-      .add(myPlacemark);
+    myMap3.geoObjects
+        .add(myPlacemark);
 
-    let objectManager = new window.ymaps.ObjectManager();
+    function checkState() {
+      let shownObjects;
+      let byColor = new ymaps.GeoQueryResult();
 
-    myMap2.geoObjects.add(objectManager);
+
+      if ($('#filterAll').prop('checked')) {
+        byColor = myObjects;
+      }
+
+      // Отберем объекты по признакам.
+      if ($('#filterPark').prop('checked')) {
+        byColor = myObjects.search('options.name = "park"');
+      }
+
+      if ($('#filterMuseum').prop('checked')) {
+        byColor = myObjects.search('options.name = "museum"');
+      }
+
+      if ($('#filterChildren').prop('checked')) {
+        byColor = myObjects.search('options.name = "children"');
+      }
+
+      if ($('#filterHospital').prop('checked')) {
+        byColor = myObjects.search('options.name = "hospital"');
+      }
+
+      if ($('#filterSchool').prop('checked')) {
+        byColor = myObjects.search('options.name = "school"');
+      }
+
+      // Выводим на карте объекты,
+      shownObjects = byColor.addToMap(myMap3);
+
+      // убираем бъекты, которые не попали в выборку
+      myObjects.remove(shownObjects).removeFromMap(myMap3);
+    }
+
+    $('#filterAll').click(checkState);
+    $('#filterPark').click(checkState);
+    $('#filterMuseum').click(checkState);
+    $('#filterChildren').click(checkState);
+    $('#filterHospital').click(checkState);
+    $('#filterSchool').click(checkState);
 
     $.ajax({
       url: 'data/data.json',
     }).done(function (data) {
-      objectManager.add(data);
+      window.myObjects = ymaps.geoQuery(data).addToMap(myMap3);
     });
 
   });
 
 };
-
 
 const initMap4 = () => {
 
@@ -303,16 +341,16 @@ const initMap4 = () => {
 
     // Создадим 5 пунктов выпадающего списка.
     let listBoxItems = ['Школа', 'Аптека', 'Магазин', 'Больница', 'Бар']
-      .map(function (title) {
-        return new ymaps.control.ListBoxItem({
-          data: {
-            content: title,
-          },
-          state: {
-            selected: true,
-          },
+        .map(function (title) {
+          return new ymaps.control.ListBoxItem({
+            data: {
+              content: title,
+            },
+            state: {
+              selected: true,
+            },
+          });
         });
-      });
     let reducer = function (filters, filter) {
       filters[filter.data.get('content')] = filter.isSelected();
       return filters;
@@ -362,4 +400,4 @@ const initMap4 = () => {
   });
 };
 
-export { initMap, initMap2, initMap3, initMap4 };
+export {initMap, initMap2, initMap3, initMap4};

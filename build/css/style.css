@@ -2520,6 +2520,56 @@ button,
   margin: 0 0 0 0;
 }
 
+.map-filter {
+  padding: 50px 0 0;
+}
+
+.map-filter__list {
+  padding: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: -10px -15px 0;
+}
+
+.map-filter__item {
+  padding: 10px 15px 0;
+}
+
+.map-filter__label {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: rgba(107, 202, 255, 0.5);
+  border: 2px solid transparent;
+  padding: 10px 20px 10px 5px;
+  border-radius: 15px;
+  font-size: 18px;
+  line-height: 21px;
+  cursor: pointer;
+  -webkit-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+          user-select: none;
+  padding: 20px;
+}
+
+.map-filter input:checked + .map-filter__label {
+  background-color: #6bcaff;
+}
+
 /* @mixin hover-focus {
     @media (hover: hover) {
       &:hover:not(.focus-visible) {

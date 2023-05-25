@@ -30,6 +30,7 @@
     zoom: "15",
     mapId: "map-3",
     superZoom: true,
+    filter: true,
     items: [
       "Реализовать карту через API Яндекс карт",
       "Настроить кастомный пин на карте так, что бы его стрелочка четко указывала на центр координат, которые вы можете придумать сами",
@@ -71,4 +72,35 @@ mixin map(data)
         if data.superZoom === true
           .map__super-zoom(data-map="superzoom")
             p Для масштабирования карты колесом мыши, зажмите клавишу Ctrl
+      if data.filter === true
+        .map-filter
+          form.map-filter__form(action = "#")
+            .map-filter__list
+              .map-filter__item
+                input.visually-hidden(type="radio" name="filterList" value="all" id="filterAll" checked)
+                label.map-filter__label(for="filterAll")
+                  span Все объекты
+              .map-filter__item
+                input.visually-hidden(type="radio" name="filterList" value="park" id="filterPark")
+                label.map-filter__label(for="filterPark")
+                  span Парки
+              .map-filter__item
+                input.visually-hidden(type="radio" name="filterList" value="museum" id="filterMuseum")
+                label.map-filter__label(for="filterMuseum")
+                  span Музеи
+              .map-filter__item
+                input.visually-hidden(type="radio" name="filterList" value="children" id="filterChildren")
+                label.map-filter__label(for="filterChildren")
+                  span Дет. сады
+              .map-filter__item
+                input.visually-hidden(type="radio" name="filterList" value="hospital" id="filterHospital")
+                label.map-filter__label(for="filterHospital")
+                  span Поликлиники
+              .map-filter__item
+                input.visually-hidden(type="radio" name="filterList" value="school" id="filterSchool")
+                label.map-filter__label(for="filterSchool")
+                  span Школы
+
+
+
 

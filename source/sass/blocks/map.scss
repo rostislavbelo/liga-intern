@@ -63,3 +63,41 @@
 
 
 }
+
+.map-filter {
+  padding: 50px 0 0;
+}
+
+.map-filter__list {
+  padding: 0;
+  list-style: none;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: -10px -15px 0;
+}
+
+.map-filter__item {
+  padding: 10px 15px 0;
+}
+
+.map-filter__label {
+  display: flex;
+  align-items: center;
+  background-color: rgba(107,202,255,.5);
+  border: 2px solid transparent;
+  padding: 10px 20px 10px 5px;
+  border-radius: 15px;
+  font-size: 18px;
+  line-height: 21px;
+  cursor: pointer;
+  transition: all .3s ease;
+  user-select: none;
+  padding: 20px;
+}
+
+.map-filter input:checked+.map-filter__label {
+  background-color: #6bcaff;
+}
