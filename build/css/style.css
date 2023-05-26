@@ -2572,6 +2572,10 @@ button,
   background-color: #6bcaff;
 }
 
+.ballon_body p {
+  margin-bottom: 6px;
+}
+
 /* @mixin hover-focus {
     @media (hover: hover) {
       &:hover:not(.focus-visible) {

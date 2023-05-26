@@ -44,8 +44,6 @@ window.addEventListener('DOMContentLoaded', () => {
     initMap();
     initMap2();
     initMap3();
-
-
     initMap4();
     initLoader();
 
