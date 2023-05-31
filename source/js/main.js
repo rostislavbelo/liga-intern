@@ -10,7 +10,7 @@ import {addScrollLock} from './utils/scroll-lock-ios';
 import {initAnimateIntro} from './modules/animation/init-animate-intro.js';
 import {initAnimateBatch} from './modules/animation/init-animate-batch.js';
 import {initStickySlider} from './modules/animation/init-sticky-slider.js';
-import {initMap, initMap2, initMap3, initMap4} from './modules/initMaps.js';
+import {initMaps} from './modules/initMaps.js';
 
 
 // ---------------------------------
@@ -41,10 +41,7 @@ window.addEventListener('DOMContentLoaded', () => {
     // initAnimateIntro();
     initAnimateBatch();
     initStickySlider();
-    initMap();
-    initMap2();
-    initMap3();
-    initMap4();
+    initMaps();
     initLoader();
 
     window.addEventListener('loaderOff', () => {

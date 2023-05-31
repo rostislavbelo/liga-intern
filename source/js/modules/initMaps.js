@@ -1,460 +1,198 @@
+import json from '../../data/data.json';
 
-const initMap = () => {
-  const container = document.querySelector('[data-map="map-1"]');
+const initMaps = () => {
+  const maps = document.querySelectorAll('[data-map]');
 
-  if (!container) {
+  if (maps.length === 0) {
     return;
   }
 
-  const zoomValue = container.dataset.zoom;
-  const centerValue = container.dataset.center.split(',');
+  const initMap = (container) => {
 
-  ymaps.ready(function () {
-    let myMap = new ymaps.Map(container, {
-      center: centerValue,
-      zoom: zoomValue,
-    }, {
-      searchControlProvider: 'yandex#search',
-    });
+    const zoomValue = container.dataset.zoom;
+    const centerValue = container.dataset.center.split(',');
 
-    // Убираем ненужные эл-ты управления
-
-    myMap.behaviors.disable('scrollZoom');
-
-    myMap.controls.remove('zoomControl');
-
-    myMap.controls.remove('geolocationControl');
-
-    myMap.controls.remove('searchControl');
-
-    myMap.controls.remove('routeButtonControl');
-
-    myMap.controls.remove('trafficControl');
-
-    myMap.controls.remove('typeSelector');
-
-    myMap.controls.remove('fullscreenControl');
-
-    // Создаём макет содержимого.
-    // let MyIconContentLayout = ymaps.templateLayoutFactory.createClass(
-    //     '<div style="color: #FFFFFF; font-weight: bold;">$[properties.iconContent]</div>'
-    // );
-
-    let myPlacemark = new ymaps.Placemark(myMap.getCenter(), {
-      hintContent: 'Собственный значок метки',
-      // balloonContent: 'Это красивая метка',
-    }, {
-      // Опции.
-      // Необходимо указать данный тип макета.
-      iconLayout: 'default#image',
-      // Своё изображение иконки метки.
-      iconImageHref: 'img/file/main-pin.png',
-      // Размеры метки.
-      iconImageSize: [62, 76],
-      // Смещение левого верхнего угла иконки относительно
-      // её "ножки" (точки привязки).
-      iconImageOffset: [-31, -70],
-    });
-
-    // let myPlacemarkWithContent = new ymaps.Placemark([55.661574, 37.573856], {
-    //   hintContent: 'Собственный значок метки с контентом',
-    //   balloonContent: 'А эта — новогодняя',
-    //   iconContent: '12',
-    // }, {
-    //   // Опции.
-    //   // Необходимо указать данный тип макета.
-    //   iconLayout: 'default#imageWithContent',
-    //   // Своё изображение иконки метки.
-    //   iconImageHref: 'images/ball.png',
-    //   // Размеры метки.
-    //   iconImageSize: [48, 48],
-    //   // Смещение левого верхнего угла иконки относительно
-    //   // её "ножки" (точки привязки).
-    //   iconImageOffset: [-24, -24],
-    //   // Смещение слоя с содержимым относительно слоя с картинкой.
-    //   iconContentOffset: [15, 15],
-    //   // Макет содержимого.
-    //   iconContentLayout: MyIconContentLayout,
-    // });
-
-    myMap.geoObjects
-        .add(myPlacemark);
-    // .add(myPlacemarkWithContent);
-  });
-};
-
-
-const initMap2 = () => {
-
-  const container = document.querySelector('[data-map="map-2"]');
-
-  if (!container) {
-    return;
-  }
-
-  const zoomValue = container.dataset.zoom;
-  const centerValue = container.dataset.center.split(',');
-
-  ymaps.ready(function () {
-
-    let myMap2 = new ymaps.Map(container, {
-      center: centerValue,
-      zoom: zoomValue,
-    }, {
-      searchControlProvider: 'yandex#search',
-    });
-
-    myMap2.behaviors.disable('scrollZoom');
-
-    myMap2.controls.remove('zoomControl');
-
-    myMap2.controls.remove('geolocationControl');
-
-    myMap2.controls.remove('searchControl');
-
-    myMap2.controls.remove('routeButtonControl');
-
-    myMap2.controls.remove('trafficControl');
-
-    myMap2.controls.remove('typeSelector');
-
-    myMap2.controls.remove('fullscreenControl');
-
-
-    let myPlacemark = new ymaps.Placemark(myMap2.getCenter(), {
-      hintContent: 'Собственный значок метки',
-      // balloonContent: 'Это красивая метка',
-    }, {
-      // Опции.
-      // Необходимо указать данный тип макета.
-      iconLayout: 'default#image',
-      // Своё изображение иконки метки.
-      iconImageHref: 'img/file/main-pin.png',
-      // Размеры метки.
-      iconImageSize: [62, 76],
-      // Смещение левого верхнего угла иконки относительно
-      // её "ножки" (точки привязки).
-      iconImageOffset: [-31, -70],
-    });
-
-    myMap2.geoObjects
-        .add(myPlacemark);
-
-    let objectManager = new window.ymaps.ObjectManager();
-
-    myMap2.geoObjects.add(objectManager);
-
-    $.ajax({
-      url: 'data/data.json',
-    }).done(function (data) {
-      objectManager.add(data);
-    });
-
-  });
-
-};
-
-
-const initMap3 = () => {
-
-  const container = document.querySelector('[data-map="map-3"]');
-
-  if (!container) {
-    return;
-  }
-
-  const zoomValue = container.dataset.zoom;
-  const centerValue = container.dataset.center.split(',');
-
-  ymaps.ready(function () {
-
-    let myMap3 = new ymaps.Map(container, {
-      center: centerValue,
-      zoom: zoomValue,
-    }, {
-      searchControlProvider: 'yandex#search',
-    });
-
-    myMap3.behaviors.disable('scrollZoom');
-
-    myMap3.controls.remove('zoomControl');
-
-    myMap3.controls.remove('geolocationControl');
-
-    myMap3.controls.remove('searchControl');
-
-    myMap3.controls.remove('routeButtonControl');
-
-    myMap3.controls.remove('trafficControl');
-
-    myMap3.controls.remove('typeSelector');
-
-    myMap3.controls.remove('fullscreenControl');
-
-
-    // Убираем и устанавливаем возможность масштабирования по нажатию на ctrl
-    const message = document.querySelector('[data-map="superzoom"]');
-
-    const showMessage = () => {
-
-      let sign = true;
-
-      let hidden = null;
-
-      document.addEventListener('keydown', (evt) => {
-        if (evt.key === 'Control') {
-          sign = false;
-          myMap3.behaviors.enable('scrollZoom');
-          message.classList.remove('is-active');
-          clearInterval(hidden);
-
-
-          document.addEventListener('keyup', () => {
-            if (evt.key === 'Control') {
-              sign = true;
-              myMap3.behaviors.disable('scrollZoom');
-            }
-          });
-        }
+    window.ymaps.ready(function () {
+      let myMap = new window.ymaps.Map(container, {
+        center: centerValue,
+        zoom: zoomValue,
+      }, {
+        searchControlProvider: 'yandex#search',
       });
 
-      const show = () => {
-        if (sign) {
-          message.classList.add('is-active');
-          hidden = setTimeout(() => {
-            message.classList.remove('is-active');
-          }, 2000);
-        }
-        return;
-      };
+      // - Удаляем ненужные панели
+      myMap.behaviors.disable('scrollZoom');
+      myMap.controls.remove('zoomControl');
+      myMap.controls.remove('geolocationControl');
+      myMap.controls.remove('searchControl');
+      myMap.controls.remove('routeButtonControl');
+      myMap.controls.remove('trafficControl');
+      myMap.controls.remove('typeSelector');
+      myMap.controls.remove('fullscreenControl');
 
-      container.addEventListener('wheel', show, clearTimeout(hidden));
-
-    };
-
-    if (message) {
-      showMessage();
-    }
-
-    let myPlacemark = new ymaps.Placemark(myMap3.getCenter(), {
-      hintContent: 'Собственный значок метки',
-    }, {
-      // Опции.
-      // Необходимо указать данный тип макета.
-      iconLayout: 'default#image',
-      // Своё изображение иконки метки.
-      iconImageHref: 'img/file/main-pin.png',
-      // Размеры метки.
-      iconImageSize: [62, 76],
-      // Смещение левого верхнего угла иконки относительно
-      // её "ножки" (точки привязки).
-      iconImageOffset: [-31, -70],
-    });
-
-    myMap3.geoObjects
-        .add(myPlacemark);
-
-    function checkState() {
-      let shownObjects;
-      let byColor = new ymaps.GeoQueryResult();
-
-
-      if ($('#filterAll').prop('checked')) {
-        byColor = myObjects;
-      }
-
-      // Отберем объекты по признакам.
-      if ($('#filterPark').prop('checked')) {
-        byColor = myObjects.search('options.name = "park"');
-      }
-
-      if ($('#filterMuseum').prop('checked')) {
-        byColor = myObjects.search('options.name = "museum"');
-      }
-
-      if ($('#filterChildren').prop('checked')) {
-        byColor = myObjects.search('options.name = "children"');
-      }
-
-      if ($('#filterHospital').prop('checked')) {
-        byColor = myObjects.search('options.name = "hospital"');
-      }
-
-      if ($('#filterSchool').prop('checked')) {
-        byColor = myObjects.search('options.name = "school"');
-      }
-
-      // Выводим на карте объекты,
-      shownObjects = byColor.addToMap(myMap3);
-
-      // убираем бъекты, которые не попали в выборку
-      myObjects.remove(shownObjects).removeFromMap(myMap3);
-    }
-
-    $('#filterAll').click(checkState);
-    $('#filterPark').click(checkState);
-    $('#filterMuseum').click(checkState);
-    $('#filterChildren').click(checkState);
-    $('#filterHospital').click(checkState);
-    $('#filterSchool').click(checkState);
-
-    $.ajax({
-      url: 'data/data.json',
-    }).done(function (data) {
-      window.myObjects = ymaps.geoQuery(data).addToMap(myMap3);
-    });
-
-  });
-
-};
-
-const initMap4 = () => {
-
-  const container = document.querySelector('[data-map="map-4"]');
-
-  if (!container) {
-    return;
-  }
-
-  const zoomValue = container.dataset.zoom;
-  const centerValue = container.dataset.center.split(',');
-
-  ymaps.ready(function () {
-
-    let myMap4 = new ymaps.Map(container, {
-      center: centerValue,
-      zoom: zoomValue,
-    }, {
-      searchControlProvider: 'yandex#search',
-    });
-
-    myMap4.behaviors.disable('scrollZoom');
-
-    myMap4.controls.remove('zoomControl');
-
-    myMap4.controls.remove('geolocationControl');
-
-    myMap4.controls.remove('searchControl');
-
-    myMap4.controls.remove('routeButtonControl');
-
-    myMap4.controls.remove('trafficControl');
-
-    myMap4.controls.remove('typeSelector');
-
-    myMap4.controls.remove('fullscreenControl');
-
-    const message = document.querySelector('[data-map="superzoom"]');
-
-    const showMessage = () => {
-
-      let sign = true;
-
-      let hidden = null;
-
-      document.addEventListener('keydown', (evt) => {
-        if (evt.key === 'Control') {
-          sign = false;
-          myMap4.behaviors.enable('scrollZoom');
-          message.classList.remove('is-active');
-          clearInterval(hidden);
-
-
-          document.addEventListener('keyup', () => {
-            if (evt.key === 'Control') {
-              sign = true;
-              myMap4.behaviors.disable('scrollZoom');
-            }
-          });
-        }
+      // Добавляем главную метку
+      let myPlacemark = new window.ymaps.Placemark(myMap.getCenter(), {
+        hintContent: 'Собственный значок метки',
+      }, {
+        iconLayout: 'default#image',
+        // Своё изображение иконки метки.
+        iconImageHref: 'img/file/main-pin.png',
+        // Размеры метки.
+        iconImageSize: [62, 76],
+        iconImageOffset: [-31, -70],
       });
 
-      const show = () => {
-        if (sign) {
-          message.classList.add('is-active');
-          hidden = setTimeout(() => {
-            message.classList.remove('is-active');
-          }, 2000);
-        }
-        return;
+      myMap.geoObjects
+          .add(myPlacemark);
+
+      // Добавляем пины без опций
+      const addPins = () => {
+        let objectManager = new window.ymaps.ObjectManager();
+        myMap.geoObjects.add(objectManager);
+        objectManager.add(json);
       };
 
-      container.addEventListener('wheel', show, clearTimeout(hidden));
+      if (container.dataset.pins === 'default') {
+        addPins();
+      }
 
-    };
+      // Добавляем пины с фильтрацией
+      const filterPins = () => {
 
-    if (message) {
-      showMessage();
-    }
+        const filtersBlock = document.querySelector('[data-filters]');
+        const filterCollection = filtersBlock.querySelectorAll('input');
 
+        const filterAll = filtersBlock.querySelector('#filterAll');
+        const filterPark = filtersBlock.querySelector('#filterPark');
+        const filterMuseum = filtersBlock.querySelector('#filterMuseum');
+        const filterChildren = filtersBlock.querySelector('#filterChildren');
+        const filterHospital = filtersBlock.querySelector('#filterHospital');
+        const filterSchool = filtersBlock.querySelector('#filterSchool');
 
-    let myPlacemark = new ymaps.Placemark(myMap4.getCenter(), {
-      hintContent: 'Собственный значок метки',
-      // balloonContent: 'Это красивая метка',
-    }, {
-      // Опции.
-      // Необходимо указать данный тип макета.
-      iconLayout: 'default#image',
-      // Своё изображение иконки метки.
-      iconImageHref: 'img/file/main-pin.png',
-      // Размеры метки.
-      iconImageSize: [62, 76],
-      // Смещение левого верхнего угла иконки относительно
-      // её "ножки" (точки привязки).
-      iconImageOffset: [-31, -70],
-    });
+        function checkState() {
+          let shownObjects;
+          let result = new window.ymaps.GeoQueryResult();
 
-    myMap4.geoObjects
-        .add(myPlacemark);
+          if (filterAll.checked) {
+            result = window.myObjects;
+          }
 
+          if (filterPark.checked) {
+            result = window.myObjects.search('options.name = "park"');
+          }
 
-    // Создаем собственный макет с информацией о выбранном геообъекте.
-    let customItemContentLayout = ymaps.templateLayoutFactory.createClass(
-        // Флаг "raw" означает, что данные вставляют "как есть" без экранирования html.
-        '<div class=ballon_body>{{ properties.balloonContentBody|raw }}</div>'
-    );
+          if (filterMuseum.checked) {
+            result = window.myObjects.search('options.name = "museum"');
+          }
 
-    let objectManager = new window.ymaps.ObjectManager(
-        {
-          clusterDisableClickZoom: true,
-          clusterOpenBalloonOnClick: true,
-          // Устанавливаем стандартный макет балуна кластера "Карусель".
-          clusterBalloonContentLayout: 'cluster#balloonCarousel',
-          // Устанавливаем собственный макет.
-          clusterBalloonItemContentLayout: customItemContentLayout,
-          // Устанавливаем режим открытия балуна.
-          // В данном примере балун никогда не будет открываться в режиме панели.
-          clusterBalloonPanelMaxMapArea: 0,
-          // Устанавливаем размеры макета контента балуна (в пикселях).
-          clusterBalloonContentLayoutWidth: 300,
-          clusterBalloonContentLayoutHeight: 80,
-          // Устанавливаем максимальное количество элементов в нижней панели на одной странице
-          clusterBalloonPagerSize: 10,
-          // Настройка внешнего вида нижней панели.
-          // Режим marker рекомендуется использовать с небольшим количеством элементов.
-          clusterBalloonPagerType: 'marker',
-          // Можно отключить зацикливание списка при навигации при помощи боковых стрелок.
-          // clusterBalloonCycling: false,
-          // Можно отключить отображение меню навигации.
-          // clusterBalloonPagerVisible: false\
-          // Чтобы метки начали кластеризоваться, выставляем опцию.
-          clusterize: true,
-          // ObjectManager принимает те же опции, что и кластеризатор.
-          gridSize: 185,
-          // Макет метки кластера pieChart.
-          clusterIconLayout: 'default#pieChart',
+          if (filterChildren.checked) {
+            result = window.myObjects.search('options.name = "children"');
+          }
+
+          if (filterHospital.checked) {
+            result = window.myObjects.search('options.name = "hospital"');
+          }
+
+          if (filterSchool.checked) {
+            result = window.myObjects.search('options.name = "school"');
+          }
+
+          // Выводим на карте объекты,
+          shownObjects = result.addToMap(myMap);
+
+          // убираем бъекты, которые не попали в выборку
+          window.myObjects.remove(shownObjects).removeFromMap(myMap);
         }
-    );
+
+        filterCollection.forEach((filter) => {
+          filter.addEventListener('click', checkState);
+        });
+
+        window.myObjects = window.ymaps.geoQuery(json).addToMap(myMap);
+      };
 
 
-    myMap4.geoObjects.add(objectManager);
+      if (container.dataset.pins === 'filter') {
+        filterPins();
+      }
 
-    $.ajax({
-      url: 'data/data.json',
-    }).done(function (data) {
-      objectManager.add(data);
+      // Инициализируем Зум с ctrl c сообщением на карте
+      const showMessage = () => {
+        const message = container.closest('.map__inner').querySelector('[data-map-superzoom]');
+        let sign = true;
+        let hidden = null;
+
+        document.addEventListener('keydown', (evt) => {
+          if (evt.key === 'Control') {
+            sign = false;
+            myMap.behaviors.enable('scrollZoom');
+            message.classList.remove('is-active');
+            clearInterval(hidden);
+
+            document.addEventListener('keyup', () => {
+              if (evt.key === 'Control') {
+                sign = true;
+                myMap.behaviors.disable('scrollZoom');
+              }
+            });
+          }
+        });
+
+        const show = () => {
+          if (sign) {
+            message.classList.add('is-active');
+            hidden = setTimeout(() => {
+              message.classList.remove('is-active');
+            }, 2000);
+          }
+          return;
+        };
+
+        container.addEventListener('wheel', show, clearTimeout(hidden));
+
+      };
+
+      if (container.dataset.message === 'true') {
+        showMessage();
+      }
+
+      // Добавляем пины с кластеризацией
+      const addClastersPins = () => {
+
+        let customItemContentLayout = window.ymaps.templateLayoutFactory.createClass(
+            '<div class=ballon_body>{{ properties.balloonContentBody|raw }}</div>'
+        );
+
+        let objectManager = new window.ymaps.ObjectManager(
+            {
+              clusterDisableClickZoom: true,
+              clusterOpenBalloonOnClick: true,
+              clusterBalloonContentLayout: 'cluster#balloonCarousel',
+              clusterBalloonItemContentLayout: customItemContentLayout,
+              clusterBalloonPanelMaxMapArea: 0,
+              clusterBalloonContentLayoutWidth: 300,
+              clusterBalloonContentLayoutHeight: 80,
+              clusterBalloonPagerSize: 10,
+              clusterBalloonPagerType: 'marker',
+              clusterize: true,
+              gridSize: 185,
+              clusterIconLayout: 'default#pieChart',
+            }
+        );
+
+        myMap.geoObjects.add(objectManager);
+        objectManager.add(json);
+      };
+
+      if (container.dataset.pins === 'clasters') {
+        addClastersPins();
+      }
     });
+  };
+
+  maps.forEach((map) => {
+    initMap(map);
   });
 };
 
-export {initMap, initMap2, initMap3, initMap4};
+export {initMaps};

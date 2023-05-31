@@ -1,7 +1,10 @@
 -
   const dataMap1 = {
+    instance: "",
     title: "Задание по карте №1",
     subTitle: "Техническое задание",
+    pins: false,
+    superZoom: "false",
     zoom: "17",
     mapId: "map-1",
     center: "59.968513, 30.317772",
@@ -13,8 +16,11 @@
   }
 
   const dataMap2 = {
+    instance: "",
     title: "Задание по карте №2",
     subTitle: "Техническое задание",
+    pins: "default",
+    superZoom: "false",
     zoom: "15",
     mapId: "map-2",
     center: "59.968513, 30.317772",
@@ -27,11 +33,14 @@
   }
 
   const dataMap3 = {
+    instance: "",
     title: "Задание по карте №3",
     subTitle: "Техническое задание",
+    pins: "filter",
+    message: "true",
     zoom: "15",
     mapId: "map-3",
-    superZoom: true,
+    superZoom: "true",
     filter: true,
     center: "59.968513, 30.317772",
     items: [
@@ -44,13 +53,15 @@
     ]
   }
 
-
   const dataMap4 = {
+    instance: "",
     title: "Задание по карте №4",
     subTitle: "Техническое задание",
+    pins: "clasters",
+    message: "true",
     zoom: "15",
     mapId: "map-4",
-    superZoom: true,
+    superZoom: "true",
     center: "59.968513, 30.317772",
     items: [
       "Реализовать карту через API Яндекс карт",
@@ -66,18 +77,19 @@
 mixin map(data)
   .map
     .container
+
       h1 !{data.title}
       h2 !{data.subTitle}
       each item in data.items
         p !{item}
 
       .map__inner
-        .map__inner-map(data-map=data.mapId data-center=data.center data-zoom=data.zoom)
-        if data.superZoom === true
-          .map__super-zoom(data-map="superzoom")
+        .map__inner-map(data-map=data.mapId data-center=data.center data-zoom=data.zoom data-pins=data.pins data-message=data.message)
+        if data.message === "true"
+          .map__super-zoom(data-map-superzoom)
             p Для масштабирования карты колесом мыши, зажмите клавишу Ctrl
       if data.filter === true
-        .map-filter
+        .map-filter(data-filters)
           form.map-filter__form(action = "#")
             .map-filter__list
               .map-filter__item
